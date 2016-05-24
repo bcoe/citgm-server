@@ -1,10 +1,34 @@
 language: c
 sudo: true
+os:
+  - linux
+  - osx
+env:
+  - NIGHTLY=1
+  - NODE_VERSION=4
+  - NODE_VERSION=6
 before_install:
-  - curl -XGET https://nodejs.org/download/nightly/v6.0.0-nightly20160425eb4201f07a/node-v6.0.0-nightly20160425eb4201f07a-linux-x64.tar.gz > /tmp/node-v6.0.0-nightly20160425eb4201f07a-linux-x64.tar.gz
+  - if [ -n "$NIGHTLY" ];
+      sudo npm i json -g
+
+      if [ "$TRAVIS_OS_NAME" = "osx" ]; then
+        export OS=darwin
+      else
+        export OS=linux
+      fi
+      export LATEST=`curl --silent -XGET https://nodejs.org/download/nightly/index.json | json 1.version`
+      export TARBALL="node-${LATEST}-${OS}-x64.tar.gz"
+      export PATH=$PATH:$PWD/node-${LATEST}-${OS}-x64/bin/
+
+      curl -XGET "https://nodejs.org/download/nightly/${LATEST}/${TARBALL} > /tmp/${TARBALL}"
+      tar -xvf "/tmp/${TARBALL}"
+      nvm deactivate
+      env
+    else
+      nvm install $NODE_VERSION
+      nvm use $NODE_VERSION
+    fi
   - tar -xvf /tmp/node-v6.0.0-nightly20160425eb4201f07a-linux-x64.tar.gz
-  - export PATH=$PATH:$PWD/node-v6.0.0-nightly20160425eb4201f07a-linux-x64/bin/
-  - nvm deactivate
   - node --version
   - npm --version
 install: npm install
