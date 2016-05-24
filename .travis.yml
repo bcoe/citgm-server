@@ -1,10 +1,9 @@
 language: c
 sudo: true
 before_install:
-  - curl -XGET https://nodejs.org/download/nightly/v6.0.0-nightly20160425eb4201f07a/node-v6.0.0-nightly20160425eb4201f07a-linux-x64.tar.gz > /tmp/nightly.tar.gz
-  - tar -xvf /tmp/nightly.tar.gz
-  - sudo ln -sf node-v6.0.0-nightly20160425eb4201f07a-linux-x64/bin/node /usr/bin/node
-  - sudo ln -sf node-v6.0.0-nightly20160425eb4201f07a-linux-x64/bin/npm /usr/bin/npm
+  - curl -XGET https://nodejs.org/download/nightly/v6.0.0-nightly20160425eb4201f07a/node-v6.0.0-nightly20160425eb4201f07a-linux-x64.tar.gz > /tmp/node-v6.0.0-nightly20160425eb4201f07a-linux-x64.tar.gz
+  - tar -xvf /tmp/node-v6.0.0-nightly20160425eb4201f07a-linux-x64.tar.gz
+  - export PATH=$PATH:/tmp/node-v6.0.0-nightly20160425eb4201f07a-linux-x64/bin/
   - nvm deactivate
   - node --version
   - npm --version
