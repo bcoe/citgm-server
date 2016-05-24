@@ -4,7 +4,8 @@
   "description": "real-time citgm smoke-testing server",
   "main": "server.js",
   "scripts": {
-    "test": "nyc mocha test/*.js"
+    "test": "nyc mocha test/*.js",
+    "version": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.5.1",
-    "nyc": "^6.4.4"
+    "nyc": "^6.4.4",
+    "standard-version": "^2.2.1"
   },
   "dependencies": {
     "github-change-remote-file": "^1.1.0",
