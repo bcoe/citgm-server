@@ -5,7 +5,7 @@ before_install:
   - tar -xvf /tmp/nightly.tar.gz
   - sudo ln -sf node-v6.0.0-nightly20160425eb4201f07a-linux-x64/bin/node /bin/node
   - sudo ln -sf node-v6.0.0-nightly20160425eb4201f07a-linux-x64/bin/npm /bin/npm
-  - node --version
-  - npm --version
+  - which node
+  - which npm
 install: npm install
 script: ./node_modules/.bin/citgm yargs
