@@ -3,9 +3,9 @@ sudo: true
 before_install:
   - curl -XGET https://nodejs.org/download/nightly/v6.0.0-nightly20160425eb4201f07a/node-v6.0.0-nightly20160425eb4201f07a-linux-x64.tar.gz > /tmp/nightly.tar.gz
   - tar -xvf /tmp/nightly.tar.gz
-  - sudo ln -s node-v6.0.0-nightly20160425eb4201f07a-linux-x64/bin/node /usr/local/node
-  - sudo ln -s node-v6.0.0-nightly20160425eb4201f07a-linux-x64/bin/npm /usr/local/npm
+  - sudo ln -sf node-v6.0.0-nightly20160425eb4201f07a-linux-x64/bin/node /bin/node
+  - sudo ln -sf node-v6.0.0-nightly20160425eb4201f07a-linux-x64/bin/npm /bin/npm
   - node --version
   - npm --version
 install: npm install
-script: npm test
+script: ./node_modules/.bin/citgm yargs
