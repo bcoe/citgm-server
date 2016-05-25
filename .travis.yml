@@ -1,4 +1,4 @@
-language: c
+language: nodejs
 sudo: true
 os:
   - linux
@@ -28,7 +28,6 @@ before_install:
       nvm install $NODE_VERSION
       nvm use $NODE_VERSION
     fi
-  - tar -xvf /tmp/node-v6.0.0-nightly20160425eb4201f07a-linux-x64.tar.gz
   - node --version
   - npm --version
 install: npm install
