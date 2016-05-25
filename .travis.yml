@@ -8,9 +8,9 @@ env:
   - NODE_VERSION=4
   - NODE_VERSION=6
 before_install:
-  - if [ -n "$NIGHTLY" ];
+  - |
+    if [ -n "$NIGHTLY" ];
       sudo npm i json -g
-
       if [ "$TRAVIS_OS_NAME" = "osx" ]; then
         export OS=darwin
       else
