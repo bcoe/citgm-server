@@ -4,6 +4,7 @@
   "description": "real-time citgm smoke-testing server",
   "main": "server.js",
   "scripts": {
+    "pretest": "standard",
     "test": "nyc mocha test/*.js",
     "version": "standard-version"
   },
@@ -24,12 +25,17 @@
   "homepage": "https://github.com/bcoe/citgm-server#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
     "mocha": "^2.5.1",
     "nyc": "^6.4.4",
+    "standard": "^7.1.0",
     "standard-version": "^2.2.1"
   },
   "dependencies": {
+    "body-parser": "^1.15.1",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
     "github-change-remote-file": "^1.1.0",
-    "restify": "^4.0.4"
+    "lodash.assign": "^4.0.9"
   }
 }
