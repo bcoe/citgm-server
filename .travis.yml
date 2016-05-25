@@ -26,12 +26,12 @@ before_install:
       sudo ln -sf "$PWD/node-${LATEST}-${OS}-x64/bin/npm" /usr/local/bin/npm
 
       nvm deactivate
+      sudo npm i node-gyp -g
     else
       nvm install $NODE_VERSION
       nvm use $NODE_VERSION
+      npm i node-gyp -g
     fi
-  - which node
-  - which npm
   - node --version
   - npm --version
 install: npm install
