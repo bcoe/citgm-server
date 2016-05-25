@@ -19,11 +19,11 @@ before_install:
       export LATEST=`curl --silent -XGET https://nodejs.org/download/nightly/index.json | json 1.version`
       export TARBALL="node-${LATEST}-${OS}-x64.tar.gz"
       export PATH=$PATH:$PWD/node-${LATEST}-${OS}-x64/bin/
+      echo "https://nodejs.org/download/nightly/${LATEST}/${TARBALL}"
 
-      curl -XGET "https://nodejs.org/download/nightly/${LATEST}/${TARBALL} > /tmp/${TARBALL}"
+      curl -XGET "https://nodejs.org/download/nightly/${LATEST}/${TARBALL}" > "/tmp/${TARBALL}"
       tar -xvf "/tmp/${TARBALL}"
       nvm deactivate
-      env
     else
       nvm install $NODE_VERSION
       nvm use $NODE_VERSION
