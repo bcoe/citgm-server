@@ -9,7 +9,7 @@ app.use(bodyParser.text({
 }))
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.post('/webhook', function (req, res) {
+app.post('/hook', function (req, res) {
   var body = JSON.parse(req.body)
 
   console.log(req.body)
